@@ -1,1 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  trans_date: 2013-07-17
+  post_date: 2013-07-17
+  description: MyString
+  amount: 9.99
+
+two:
+  trans_date: 2013-07-17
+  post_date: 2013-07-17
+  description: MyString
+  amount: 9.99

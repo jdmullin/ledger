@@ -4,9 +4,11 @@ Ledger::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-   root 'main#index'
+   root 'transactions#index'
 
   get 'transactions/import' => 'transactions#importform'
+  delete 'transactions/clear_all' => 'transactions#clear_all'
+  post 'transactions/set_tag' => 'transactions#set_tag'
   resources :transactions
 
   # Example of regular route:

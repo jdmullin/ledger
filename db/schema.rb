@@ -11,16 +11,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130722044424) do
+ActiveRecord::Schema.define(version: 20130904034721) do
+
+  create_table "example_scaffolds", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tags", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "transactions", force: true do |t|
     t.date     "trans_date"
     t.date     "post_date"
     t.string   "description"
-    t.decimal  "amount",      precision: 10, scale: 0
+    t.decimal  "amount",       precision: 10, scale: 0
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "trans_type"
+    t.integer  "tag_id"
+    t.string   "signature"
+    t.string   "check_number"
   end
+
+  add_index "transactions", ["signature"], name: "index_transactions_on_signature", using: :btree
+  add_index "transactions", ["tag_id"], name: "index_transactions_on_tag_id", using: :btree
 
 end
